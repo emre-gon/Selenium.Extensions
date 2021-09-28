@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.1.94</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Drivers\chromedriver.exe" />
+    <None Remove="Drivers\chromedriver_linux" />
+    <None Remove="Drivers\chromedriver_mac" />
+    <None Remove="Drivers\chromedriver_mac_m1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Drivers\chromedriver.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="Drivers\chromedriver_linux">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="Drivers\chromedriver_mac">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+    <Content Include="Drivers\chromedriver_mac_m1">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <PackageCopyToOutput>true</PackageCopyToOutput>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sl.Extensions.Json" Version="1.1.0" />
+    <PackageReference Include="Sl.Selenium.Base" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
