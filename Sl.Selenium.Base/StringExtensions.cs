@@ -25,7 +25,11 @@ namespace Sl.Selenium
         }
         public static String GetQueryString(this String query, String key)
         {
-            return query.GetQueryDictionary()[key];
+            var dict = query.GetQueryDictionary();
+            if (!dict.ContainsKey(key))
+                return null;
+
+            return dict[key];
         }
     }
 }
