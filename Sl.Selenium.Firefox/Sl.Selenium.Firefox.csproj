@@ -3,16 +3,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="DriversX64\geckodriver.exe" />
     <None Remove="DriversX64\geckodriver_linux" />
     <None Remove="DriversX64\geckodriver_osx" />
-    <None Remove="DriversX86\geckodriver.exe" />
-    <None Remove="DriversX86\geckodriver_linux" />
-    <None Remove="DriversX86\geckodriver_osx" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,18 +25,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  <PackageCopyToOutput>true</PackageCopyToOutput>
     </Content>
-    <Content Include="DriversX86\geckodriver.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <PackageCopyToOutput>true</PackageCopyToOutput>
-    </Content>
-    <Content Include="DriversX86\geckodriver_linux">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <PackageCopyToOutput>true</PackageCopyToOutput>
-    </Content>
-    <Content Include="DriversX86\geckodriver_osx">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  <PackageCopyToOutput>true</PackageCopyToOutput>
-    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Sl.Extensions" Version="1.1.4" />
   </ItemGroup>
 
   <ItemGroup>
