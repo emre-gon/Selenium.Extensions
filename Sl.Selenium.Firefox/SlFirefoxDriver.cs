@@ -125,17 +125,38 @@ namespace Sl.Selenium.Firefox
 
             foreach (var dir in profileDirs)
             {
-                string name = string.Join(".", dir.Split('.').Skip(1));
+                DirectoryInfo dirInfo = new DirectoryInfo(dir);
+
+                if (!dirInfo.Name.Contains("."))
+                {
+                    //firefox profile folders should contain a dot
+                    continue;
+                }
+
+
+                string name = string.Join(".", dirInfo.Name.Split('.').Skip(1));
 
                 if (name == ProfileName)
                 {
+                    if(Sl.Extensions.Platform.CurrentOS() == OSPlatform.Linux)
+                    {
+                        var lockFile = dirInfo.GetFiles("lock").FirstOrDefault();
+
+                        if(lockFile != null && lockFile.Exists)
+                        {
+                            lockFile.Delete();
+                            Log.Logger.Information("Lock file deleted");
+                        }
+                    }
+                    
+
+
                     Log.Logger.Information("Profile Folder: " + name);
                     return new FirefoxProfile(dir);
                 }
             }
 
             return new FirefoxProfileManager().GetProfile(ProfileName);
-
         }
 
 
@@ -205,12 +226,19 @@ namespace Sl.Selenium.Firefox
                 Log.Logger.Information("Looking for Firefox Profiles Under: " + UnixProfilesFolder);
                 var profileDirs = Directory.GetDirectories(UnixProfilesFolder);
 
-                Log.Logger.Information("Profile Dirs: " + string.Join(", ", profileDirs));
-
+                
                 var toBeReturned = new List<string>();
                 foreach (var dir in profileDirs)
                 {
-                    string name = string.Join(".", dir.Split('.').Skip(1));
+                    DirectoryInfo dirInfo = new DirectoryInfo(dir);
+
+                    if(!dirInfo.Name.Contains("."))
+                    {
+                        //firefox profile folders should contain a dot
+                        continue;
+                    }
+
+                    string name = string.Join(".", dirInfo.Name.Split('.').Skip(1));
                     toBeReturned.Add(name);
                 }
 
