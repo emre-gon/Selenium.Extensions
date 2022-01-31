@@ -10,7 +10,7 @@ namespace Sl.Selenium.Test
         {
             
 
-            using(var driver = SLIEDriver.Instance())
+            using(var driver = SlIEDriver.Instance())
             {
 
                 driver.GoTo("https://www.investing.com/currencies/usd-try-historical-data");

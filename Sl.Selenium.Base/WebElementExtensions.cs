@@ -102,5 +102,15 @@ namespace Sl.Selenium
             }
         }
         #endregion
+
+
+
+
+        public static void ScrollTopToBottom(this IWebElement element)
+        {
+            element.SendKeys(Keys.Home);
+            Task.Delay(110).Wait();
+            element.SendKeys(Keys.End);
+        }
     }
 }
