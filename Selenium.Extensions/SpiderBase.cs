@@ -1,12 +1,15 @@
-﻿using Serilog;
+﻿using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sl.Selenium
+namespace Selenium.Extensions
 {
+    /// <summary>
+    /// Selenium WebDriver Runner With Multiple User Profiles
+    /// </summary>
     public abstract class SpiderBase : IDisposable
     {
         #region driver/profiles

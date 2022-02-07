@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace Sl.Selenium
+namespace Selenium.Extensions
 {
     [Serializable]
     public class DriverCreationException : Exception

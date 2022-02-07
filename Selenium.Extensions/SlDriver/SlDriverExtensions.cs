@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 
-namespace Sl.Selenium
+namespace Selenium.Extensions
 {
     public abstract partial class SlDriver
     {

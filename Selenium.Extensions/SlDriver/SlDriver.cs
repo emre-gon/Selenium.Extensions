@@ -4,7 +4,6 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,7 +15,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sl.Selenium
+namespace Selenium.Extensions
 {
     public abstract partial class SlDriver : IWebDriver
     {
@@ -84,7 +83,7 @@ namespace Sl.Selenium
             string rootPath = Directory.GetCurrentDirectory();
 
 
-            return $@"{rootPath}{Extensions.Platform.Slash}{DriversFolderName()}";
+            return $@"{rootPath}/{DriversFolderName()}";
         }
 
         public string DriverPath()

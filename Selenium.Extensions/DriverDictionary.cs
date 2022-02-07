@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Sl.Selenium
+namespace Selenium.Extensions
 {
     public enum SlDriverBrowserType
     {

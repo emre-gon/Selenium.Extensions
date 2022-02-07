@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 
-namespace Sl.Selenium
+namespace Selenium.Extensions
 {
     public abstract partial class SlDriver : IWebDriver, IHasInputDevices, IJavaScriptExecutor, IHasCapabilities, IActionExecutor
     {
