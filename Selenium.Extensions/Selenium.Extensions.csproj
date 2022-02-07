@@ -3,7 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.2</Version>
+    <Version>1.0.0</Version>
+    <PackageId>Sl.Selenium.Extensions</PackageId>
+    <Authors>emre-gon</Authors>
+    <Company />
+    <Product>Selenium Extensions</Product>
+    <Description>WebDriver capable of running with multiple browser profiles.
+
+Also including useful extension methods for getting parent/child elements using Css Query or XPath.</Description>
+    <Copyright>2022</Copyright>
+    <PackageProjectUrl>https://github.com/emre-gon/Selenium.Extensions</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageTags>selenium</PackageTags>
+    <RepositoryUrl>https://github.com/emre-gon/Selenium.Extensions</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +23,13 @@
     <PackageReference Include="Selenium.Support" Version="3.141.0" />
     <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
