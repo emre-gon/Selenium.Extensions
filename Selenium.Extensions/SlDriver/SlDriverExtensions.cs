@@ -102,7 +102,7 @@ namespace Selenium.Extensions
             Thread.Sleep(Miliseconds);
         }
 
-        public void GoTo(string URL)
+        public virtual void GoTo(string URL)
         {
             var isSuccess = false;
             Exception innerException = null;

@@ -30,7 +30,7 @@ namespace Selenium.Extensions
         #endregion
 
         #region base driver
-        private RemoteWebDriver _baseDriver;
+        protected RemoteWebDriver _baseDriver;
 
         private static object createBaseDriverLock = new object();
         private RemoteWebDriver _lazyBaseDriver
