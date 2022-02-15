@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Selenium.Extensions", "Selenium.Extensions\Selenium.Extensions.csproj", "{B73DCFA2-D5BD-4306-9D50-D99E2BCFAFBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sl.ParallelRunner", "Sl.ParallelRunner\Sl.ParallelRunner.csproj", "{539BAAD8-1D62-412F-9A39-3B2CE0B97937}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B73DCFA2-D5BD-4306-9D50-D99E2BCFAFBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B73DCFA2-D5BD-4306-9D50-D99E2BCFAFBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B73DCFA2-D5BD-4306-9D50-D99E2BCFAFBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{539BAAD8-1D62-412F-9A39-3B2CE0B97937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{539BAAD8-1D62-412F-9A39-3B2CE0B97937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{539BAAD8-1D62-412F-9A39-3B2CE0B97937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{539BAAD8-1D62-412F-9A39-3B2CE0B97937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
