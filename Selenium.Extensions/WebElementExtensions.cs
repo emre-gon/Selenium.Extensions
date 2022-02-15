@@ -104,12 +104,26 @@ namespace Selenium.Extensions
         #endregion
 
 
+        public enum ScrollSpeed
+        {
+            Slow,
+            Fast
+        }
 
 
-        public static void ScrollTopToBottom(this IWebElement element)
+        public static void ScrollTopToBottom(this IWebElement element, ScrollSpeed scrollSpeed = ScrollSpeed.Fast)
         {
             element.SendKeys(Keys.Home);
-            Task.Delay(110).Wait();
+            if (scrollSpeed == ScrollSpeed.Slow)
+            {
+                Task.Delay(110).Wait();
+                for (int i = 0; i < 100; i++)
+                {
+                    element.SendKeys(Keys.Down);
+                    Task.Delay(110).Wait();
+                }
+            }
+
             element.SendKeys(Keys.End);
         }
     }
