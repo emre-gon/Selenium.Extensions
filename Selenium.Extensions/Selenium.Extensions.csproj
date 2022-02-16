@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
     <PackageId>Sl.Selenium.Extensions</PackageId>
     <Authors>emre-gon</Authors>
     <Company />
@@ -16,6 +16,7 @@ Also including useful extension methods for getting parent/child elements using 
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageTags>selenium</PackageTags>
     <RepositoryUrl>https://github.com/emre-gon/Selenium.Extensions</RepositoryUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +30,10 @@ Also including useful extension methods for getting parent/child elements using 
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
     </None>
   </ItemGroup>
 

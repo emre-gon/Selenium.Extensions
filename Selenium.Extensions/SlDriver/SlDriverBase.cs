@@ -1,17 +1,8 @@
-﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Internal;
-using OpenQA.Selenium.Remote;
+﻿using OpenQA.Selenium.Remote;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Selenium.Extensions
 {

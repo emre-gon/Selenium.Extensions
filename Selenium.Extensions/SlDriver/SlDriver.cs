@@ -1,19 +1,7 @@
-﻿using Newtonsoft.Json.Bson;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Interactions;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Selenium.Extensions
 {
@@ -46,7 +34,8 @@ namespace Selenium.Extensions
                         {
                             _openDrivers.OpenDriver(this);
                         }
-                        
+
+                        DownloadDriver();
                         _baseDriver = createBaseDriver();
                         FixDriverCommandExecutionDelay(_baseDriver as RemoteWebDriver);
                     }
@@ -78,6 +67,17 @@ namespace Selenium.Extensions
         public abstract string DriverName();
         public abstract string DriversFolderName();
 
+        public void DownloadDriver()
+        {            
+            if (!File.Exists(DriverPath()))
+            {
+                DownloadLatestDriver();
+            }
+        }
+
+        protected abstract void DownloadLatestDriver();
+
+
         public string DriversFolderPath()
         {
             string rootPath = Directory.GetCurrentDirectory();
@@ -88,7 +88,7 @@ namespace Selenium.Extensions
 
         public string DriverPath()
         {
-            return $@"{DriversFolderPath()}\{DriverName()}";
+            return $@"{DriversFolderPath()}/{DriverName()}";
         }
 
     }
