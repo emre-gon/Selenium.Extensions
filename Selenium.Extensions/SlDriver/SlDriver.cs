@@ -21,7 +21,7 @@ namespace Selenium.Extensions
         protected RemoteWebDriver _baseDriver;
 
         private static object createBaseDriverLock = new object();
-        private RemoteWebDriver _lazyBaseDriver
+        protected RemoteWebDriver _lazyBaseDriver
         {
             get
             {
