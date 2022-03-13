@@ -10,7 +10,7 @@ namespace Selenium.Extensions
 {
     public abstract class GenSlDriver<T> : SlDriver where T : RemoteWebDriver
     {
-        protected GenSlDriver(string ProfileName, bool Headless) : base(GetBrowserType(typeof(T)), ProfileName, Headless)
+        protected GenSlDriver(ISet<string> DriverArguments, string ProfileName, bool Headless) : base(GetBrowserType(typeof(T)), DriverArguments, ProfileName, Headless)
         {
         }
 
@@ -23,6 +23,12 @@ namespace Selenium.Extensions
             }
         }
 
+        protected override RemoteWebDriver getBaseDriver()
+        {
+            return CreateBaseDriver();
+        }
+
+        protected abstract T CreateBaseDriver();
 
         private static SlDriverBrowserType GetBrowserType(Type T)
         {

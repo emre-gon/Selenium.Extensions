@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
@@ -36,7 +37,7 @@ namespace Selenium.Extensions
                         }
 
                         DownloadDriver();
-                        _baseDriver = createBaseDriver();
+                        _baseDriver = getBaseDriver();
                         FixDriverCommandExecutionDelay(_baseDriver as RemoteWebDriver);
                     }
                 }
@@ -45,7 +46,7 @@ namespace Selenium.Extensions
             }
         }
 
-        protected abstract RemoteWebDriver createBaseDriver();
+        protected abstract RemoteWebDriver getBaseDriver();
 
 
         #endregion
@@ -53,12 +54,15 @@ namespace Selenium.Extensions
         #region constructor / Factory
         public readonly string ProfileName;
         public readonly bool Headless;
+
+        public readonly ISet<string> DriverArguments;
         public readonly SlDriverBrowserType BrowserType;
-        protected SlDriver(SlDriverBrowserType BrowserType, string ProfileName, bool Headless)
+        protected SlDriver(SlDriverBrowserType BrowserType, ISet<string> DriverArguments, string ProfileName, bool Headless)
         {
             this.BrowserType = BrowserType;
             this.ProfileName = ProfileName;
             this.Headless = Headless;
+            this.DriverArguments = DriverArguments;
         }
         #endregion
 
