@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Selenium.Extensions
 {
-    public abstract partial class SlDriver : IWebDriver, IHasInputDevices, IJavaScriptExecutor, IHasCapabilities, IActionExecutor
+    public abstract partial class SlDriver : IWebDriver, IHasInputDevices, IJavaScriptExecutor, IHasCapabilities, IActionExecutor, ITakesScreenshot
     {
         #region base props
         public string Url { get => _lazyBaseDriver.Url; set => _lazyBaseDriver.Url = value; }
@@ -74,6 +74,11 @@ namespace Selenium.Extensions
         public void ResetInputState()
         {
             ((IActionExecutor)_lazyBaseDriver).ResetInputState();
+        }
+
+        public Screenshot GetScreenshot()
+        {
+            return ((ITakesScreenshot)_lazyBaseDriver).GetScreenshot();
         }
     }
 }
