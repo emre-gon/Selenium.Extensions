@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +12,7 @@ namespace Selenium.Extensions
         IE
     }
 
-    public class DriverDictionary : Dictionary<SlDriverBrowserType, Dictionary<string, SlDriver>>
+    public class DriverDictionary : ConcurrentDictionary<SlDriverBrowserType, ConcurrentDictionary<string, SlDriver>>
     {
 
         public bool IsOpen(SlDriverBrowserType Browser, string ProfileName)
@@ -24,12 +25,15 @@ namespace Selenium.Extensions
         {
             if(!this.ContainsKey(Driver.BrowserType))
             {
-                this[Driver.BrowserType] = new Dictionary<string, SlDriver>();
+                this[Driver.BrowserType] = new ConcurrentDictionary<string, SlDriver>();
             }
 
             var myDict = this[Driver.BrowserType];
 
-            if(myDict.ContainsKey(Driver.ProfileName))
+            string profileName = Driver.ProfileName;
+
+
+            if(myDict.ContainsKey(profileName))
             {
                 throw new Exception("Driver is already open");
             }
@@ -51,7 +55,8 @@ namespace Selenium.Extensions
                 return;
             }
 
-            myDict.Remove(ProfileName);
+            if (!myDict.TryRemove(ProfileName, out var foo))
+                throw new Exception("Could not close driver. Concurrency error occurred.");
         }
 
         public void CloseDriver(SlDriver Driver)
@@ -65,7 +70,8 @@ namespace Selenium.Extensions
             if (!this.ContainsKey(BrowserType))
                 return;
 
-            this.Remove(BrowserType);
+            if (!this.TryRemove(BrowserType, out var foo))
+                throw new Exception("Could not clear all drivers. Concurrency error occurred.");
         }
 
         public SlDriver GetDriver(SlDriverBrowserType Browser, string ProfileName)
