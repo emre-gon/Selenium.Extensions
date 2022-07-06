@@ -128,28 +128,8 @@ namespace Selenium.Extensions
                 throw new Exception($"Could not go to {URL}. Internet down?", innerException);
         }
 
-        public void WaitUntilVisible(string CssSelector, int MaxWaitSecond = 30)
-        {
-            new WebDriverWait(this, new TimeSpan(0, 0, MaxWaitSecond))
-                    .Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.CssSelector(CssSelector)));
-        }
-
         #endregion
         #region get element/child element
-        public IWebElement GetElement(String CssSelector)
-        {
-            try
-            {
-                var wait = new WebDriverWait(_lazyBaseDriver, new TimeSpan(0, 0, 10));
-                wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
-                return wait.Until(ExpectedConditions.ElementToBeClickable(By.CssSelector(CssSelector)));
-
-            }
-            catch (Exception exc)
-            {
-                return null;
-            }
-        }
 
 
         public IWebElement GetElementFast(String CssSelector)

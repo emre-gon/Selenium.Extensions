@@ -8,7 +8,7 @@ using System.Text;
 
 namespace Selenium.Extensions
 {
-    public abstract partial class SlDriver : IWebDriver, IHasInputDevices, IJavaScriptExecutor, IHasCapabilities, IActionExecutor, ITakesScreenshot
+    public abstract partial class SlDriver : IWebDriver, IJavaScriptExecutor, IHasCapabilities, IActionExecutor, ITakesScreenshot
     {
         #region base props
         public string Url { get => _lazyBaseDriver.Url; set => _lazyBaseDriver.Url = value; }
@@ -53,13 +53,15 @@ namespace Selenium.Extensions
             }
         }
 
-        public IKeyboard Keyboard => ((IHasInputDevices)_lazyBaseDriver).Keyboard;
 
-        public IMouse Mouse => ((IHasInputDevices)_lazyBaseDriver).Mouse;
 
         public bool IsActionExecutor => ((IActionExecutor)_lazyBaseDriver).IsActionExecutor;
 
 
+        public object ExecuteScript(PinnedScript script, params object[] args)
+        {
+            return ((IJavaScriptExecutor)_lazyBaseDriver).ExecuteScript(script, args);
+        }
 
         public object ExecuteAsyncScript(string script, params object[] args)
         {
@@ -80,5 +82,6 @@ namespace Selenium.Extensions
         {
             return ((ITakesScreenshot)_lazyBaseDriver).GetScreenshot();
         }
+
     }
 }

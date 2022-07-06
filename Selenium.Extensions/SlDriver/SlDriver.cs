@@ -38,7 +38,6 @@ namespace Selenium.Extensions
 
                         DownloadDriver();
                         _baseDriver = getBaseDriver();
-                        FixDriverCommandExecutionDelay(_baseDriver as RemoteWebDriver);
                     }
                 }
 
