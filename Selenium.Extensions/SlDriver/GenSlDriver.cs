@@ -9,7 +9,7 @@ using System.Text;
 
 namespace Selenium.Extensions
 {
-    public abstract class GenSlDriver<T> : SlDriver where T : RemoteWebDriver
+    public abstract class GenSlDriver<T> : SlDriver where T : WebDriver
     {
         protected GenSlDriver(ISet<string> DriverArguments, string ProfileName, bool Headless) : base(GetBrowserType(typeof(T)), DriverArguments, ProfileName, Headless)
         {
