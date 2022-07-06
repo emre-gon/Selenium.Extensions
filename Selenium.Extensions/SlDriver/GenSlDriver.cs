@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
@@ -23,7 +24,7 @@ namespace Selenium.Extensions
             }
         }
 
-        protected override RemoteWebDriver getBaseDriver()
+        protected override WebDriver getBaseDriver()
         {
             return CreateBaseDriver();
         }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Selenium.Extensions
 {
-    public abstract partial class SlDriver : IWebDriver
+    public abstract partial class SlDriver 
     {
 
         #region static constructor
@@ -19,10 +19,10 @@ namespace Selenium.Extensions
         #endregion
 
         #region base driver
-        protected RemoteWebDriver _baseDriver;
+        protected WebDriver _baseDriver;
 
         private static object createBaseDriverLock = new object();
-        protected RemoteWebDriver _lazyBaseDriver
+        protected WebDriver _lazyBaseDriver
         {
             get
             {
@@ -45,7 +45,7 @@ namespace Selenium.Extensions
             }
         }
 
-        protected abstract RemoteWebDriver getBaseDriver();
+        protected abstract WebDriver getBaseDriver();
 
 
         #endregion
