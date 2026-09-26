@@ -52,3 +52,5 @@ Sl.Selenium.Firefox/DriversX64/
 Sl.Selenium.Firefox/DriversX86/
 Sl.Selenium.Chrome/Drivers/
 .vs/
+
+.claude/
